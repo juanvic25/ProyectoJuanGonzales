@@ -1,0 +1,25 @@
+{% extends 'menu.html'%}
+
+{% block title %}Listar Alumnos{% endblock %}
+
+{% block buscar %}
+<form class="form-inline my-2 my-lg-0" action="/alumno/listar-alumno/" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Nombre" aria-label="Search" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+{% endblock %}
+
+{% block content %}
+
+<h2>Listado de Alumnos</h2>
+    {% for alumno in alumnos%}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">Nombre: {{alumno.nombre}}</h5>
+            <p class="card-text">Edad: {{alumno.edad}}</p>
+            <p class="card-text">Sexo: {{alumno.sexo}}</p>
+            <p class="card-text">Correo: {{alumno.correo}}</p>
+            </div>
+        </div>
+    {% endfor%}
+{% endblock %}
