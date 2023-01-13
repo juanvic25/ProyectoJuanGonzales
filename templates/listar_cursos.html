@@ -1,0 +1,31 @@
+{% extends 'menu.html'%}
+
+{% block title %}Listar Cursos{% endblock %}
+
+{% block buscar %}
+<form class="form-inline my-2 my-lg-0" action="/curso/listar-curso/" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Nombre" aria-label="Search" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+{% endblock %}
+
+{% block content %}
+
+<h2>Listado de Cursos</h2>
+    {% for curso in cursos%}
+        <div class="card mb-3" style="max-width: 840px;">
+            <div class="row no-gutters">
+              <div class="col-md-4" >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeS_rzJbIR75StT9ZL8hYv2Ak2Yspq_7mROQ&usqp=CAU" alt="...">
+                </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Curso: {{curso.nombre}}</h5>
+                    <p class="card-text">Creditos: {{curso.creditos}}</p>
+                    <p class="card-text">Ciclo: {{curso.ciclo}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    {% endfor%}
+{% endblock %}

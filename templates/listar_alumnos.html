@@ -13,13 +13,24 @@
 
 <h2>Listado de Alumnos</h2>
     {% for alumno in alumnos%}
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-            <h5 class="card-title">Nombre: {{alumno.nombre}}</h5>
-            <p class="card-text">Edad: {{alumno.edad}}</p>
-            <p class="card-text">Sexo: {{alumno.sexo}}</p>
-            <p class="card-text">Correo: {{alumno.correo}}</p>
+        <div class="card mb-3" style="max-width: 740px;">
+            <div class="row no-gutters">
+              <div class="col-md-4" >
+                {% if alumno.sexo == "Masculino" %}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvueebyXjfFsDUGGJpZSXaUE6h0MKAEumlrQ&usqp=CAU" alt="...">
+                {% else %}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRfx9QF-1qaZCbGgIrqCyZnaY29r93VQtZpA&usqp=CAU" alt="...">
+                {% endif %}
+                </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Nombre: {{alumno.nombre}}</h5>
+                  <p class="card-text">Edad: {{alumno.edad}}</p>
+                  <p class="card-text">Sexo: {{alumno.sexo}}</p>
+                  <p class="card-text">Correo: {{alumno.correo}}</p>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
     {% endfor%}
 {% endblock %}

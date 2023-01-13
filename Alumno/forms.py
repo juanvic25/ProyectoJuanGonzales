@@ -6,6 +6,5 @@ class AlumnoFormulario(forms.Form):
     )
     nombre = forms.CharField(max_length=100)
     edad = forms.IntegerField()
-    sexo = forms.CharField(max_length=50)
     sexo = forms.ChoiceField(choices=generos, required=True)
     correo = forms.EmailField()

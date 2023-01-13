@@ -1,0 +1,38 @@
+{% extends 'menu.html'%}
+
+{% block title %}Listar Profesores{% endblock %}
+
+{% block buscar %}
+<form class="form-inline my-2 my-lg-0" action="/profesor/listar-profesor/" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Nombre" aria-label="Search" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+{% endblock %}
+
+{% block content %}
+
+<h2>Listado de Profesores</h2>
+    {% for profesor in profesores%}
+        <div class="card mb-3" style="max-width: 840px;">
+            <div class="row no-gutters">
+              <div class="col-md-4" >
+                {% if profesor.sexo == "Masculino" %}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTop0IXhwH6oX1JFzz0eOy3bwQ1whiMi5IlRA&usqp=CAU" alt="...">
+                {% else %}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOaekxAig0U1xvOd60NoU_m1Wvz0X_u1GNg&usqp=CAU" alt="...">
+                {% endif %}
+                </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Nombre: {{profesor.nombre}}</h5>
+                  <p class="card-text">Edad: {{profesor.edad}}</p>
+                  <p class="card-text">Sexo: {{profesor.sexo}}</p>
+                  <p class="card-text">Correo: {{profesor.correo}}</p>
+                  <p class="card-text">Celular: {{profesor.celular}}</p>
+                  <p class="card-text">Tipo: {{profesor.tipo}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    {% endfor%}
+{% endblock %}
