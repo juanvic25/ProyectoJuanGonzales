@@ -30,6 +30,12 @@
                   <p class="card-text">Correo: {{profesor.correo}}</p>
                   <p class="card-text">Celular: {{profesor.celular}}</p>
                   <p class="card-text">Tipo: {{profesor.tipo}}</p>
+                  <form action="/profesor/editar-profesor/{{profesor.id}}/" method="GET">
+                    <input type="submit" value="Editar"/>
+                  </form>
+                  <form action="/profesor/eliminar-profesor/{{profesor.id}}/" method="GET">
+                    <input type="submit" value="Eliminar"/>
+                  </form>
                 </div>
               </div>
             </div>

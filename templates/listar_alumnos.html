@@ -6,13 +6,13 @@
 <form class="form-inline my-2 my-lg-0" action="/alumno/listar-alumno/" method="GET">
     <input class="form-control mr-sm-2" type="search" placeholder="Nombre" aria-label="Search" name="search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-  </form>
+</form>
 {% endblock %}
 
 {% block content %}
 
 <h2>Listado de Alumnos</h2>
-    {% for alumno in alumnos%}
+    {% for alumno in object_list %}
         <div class="card mb-3" style="max-width: 740px;">
             <div class="row no-gutters">
               <div class="col-md-4" >
@@ -28,6 +28,13 @@
                   <p class="card-text">Edad: {{alumno.edad}}</p>
                   <p class="card-text">Sexo: {{alumno.sexo}}</p>
                   <p class="card-text">Correo: {{alumno.correo}}</p>
+
+                  <form method="GET" action="/alumno/editar-alumno/{{alumno.id}}/">
+                    <input type="submit" value="Editar"/>
+                  </form>
+                  <form method="GET" action="/alumno/eliminar-alumno/{{alumno.pk}}/">
+                    <input type="submit" value="Eliminar"/>
+                  </form>
                 </div>
               </div>
             </div>
