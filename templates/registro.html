@@ -1,0 +1,24 @@
+{% extends 'menu.html'%}
+
+{% block title %}Registrar Usuario{% endblock %}
+{% block content %}
+<h2 style="text-align:center;" >Ingresar los datos del Usuario</h2>
+<div class="card" style=" margin: 20px 410px 20px;">
+    <p></p>
+    {% if form %}
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <table>
+                {{form.as_table}}
+            </table>
+            <p></p>
+            <input type="submit" value="Guardar">
+        </form>
+    {% endif %}
+
+    {% if errors %}
+        {{errors}}
+    {%endif%}
+</div>
+{% endblock %}

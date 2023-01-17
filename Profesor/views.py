@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from Profesor.models import Profesor
 from Profesor.forms import ProfesorFormulario
 
@@ -30,6 +31,7 @@ def crear_profesor(request):
             }
         return render(request,'crear_profesores.html',context=context)
 
+@login_required
 def listar_profesor(request):
     if 'search' in request.GET:
         filtro = request.GET['search']

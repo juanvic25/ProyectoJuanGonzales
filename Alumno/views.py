@@ -1,13 +1,17 @@
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from Alumno.models import Alumno
 
-class alumnoListView(ListView):
+class alumnoListView(LoginRequiredMixin, ListView):
     modelmodel = Alumno
     template_name = 'listar_alumnos.html'
 
     def get_queryset(self):
         filtro = self.request.GET.get('search')
-        listado_filtrado = Alumno.objects.filter(nombre__contains = filtro)
+        if filtro is not None:
+            listado_filtrado = Alumno.objects.filter(nombre__contains = filtro)
+        else:
+            listado_filtrado = Alumno.objects.all
         return listado_filtrado
     
 class alumnoCreateView(CreateView):
