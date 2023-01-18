@@ -49,9 +49,18 @@
                 </div>
               </div>
               <div class="collapse navbar-collapse" style="margin-left: 600px;">
+                <ul class="navbar-nav mr-auto" >
+                  <a class="nav-link" href="/usuarios/editar_perfil/">Perfiles</a>
+                </ul>
                 {% if request.user.is_authenticated %}
+                  {% if request.user.profile.foto.url != '' %}
+                    <img src="{{request.user.profile.foto.url}}" width="50px" height="50px" >
+                  {% endif %}
                   <ul class="navbar-nav mr-auto" >
                     <a class="nav-link" href="/usuarios/logout/">Logout</a>
+                  </ul>
+                  <ul class="navbar-nav mr-auto" >
+                    <a class="nav-link" href="/usuarios/update/">Update</a>
                   </ul>
                 {%else %}
                   <ul class="navbar-nav mr-auto" >
@@ -60,6 +69,7 @@
                   <ul class="navbar-nav mr-auto" >
                     <a class="nav-link" href="/usuarios/register/">Signup</a>
                   </ul>
+                  
                 {%endif%}
               </div>
             </div>
